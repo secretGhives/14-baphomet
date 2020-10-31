@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="You are NOT here">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>the Land of Baphomet | LCFR</title>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="style.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/lettering.js/0.6.1/jquery.lettering.min.js"></script>
+	</head>
+	<body>
+
+		<div id="quotes">
+			<div class="quote">
+				<p class="text">Do what you will<br/>and, that&hellip; <br/>Shall be your Law!</p>
+			</div>
+			<div class="quote">
+				<p class="text">Why should I not hate mine enemies <br/>If I 'love' them does that&hellip; <br/>not place me at their mercy?</p>
+			</div>
+			<div class="quote">
+				<p class="text">Satan has been the best friend <br/>the church has ever had, <br/>as he has kept it in business all these years!</p>
+			</div>
+		</div>
+
+		<!-- CUSTOM SCRIPTS (INIT) -->
+		<script>
+		$(document).ready(function() {
+
+			/* Bryan Levay -- Creative, technically. http://bryanlevay.com */
+			var $quotes = $('#quotes .quote'),
+			    opts = { fadeTime: 1000, dwellTime: 8000 },
+			    shuffle,
+			    fadeInQuote,
+			    fadeOutQuote,
+			    switchTo,
+			    active,
+			    next = 0,
+			    last = 1;
+
+
+			//+ Jonas Raoni Soares
+			//@ http://jsfromhell.com/array/shuffle [v1.0]
+			shuffle = function(o){ //v1.
+			  for(var j, x, i = o.length; i; j = parseInt(Math.random() *
+			      Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+			  return o;
+			};
+
+			// fancy on the way in
+			fadeInQuote = function (q) {
+			  var letters = shuffle( $('[class*="char"]', $quotes[q]) );
+
+			  $($quotes[q]).show();
+			  $.each( letters, function (i, l) {
+			    setTimeout(
+			      function () { $(l).animate({opacity: 1}, 100 ); },
+			      ( (opts.fadeTime/2) / letters.length * i ) + (opts.fadeTime/2)
+			    );
+			  });
+			};
+
+			// and fancy on the way out
+			fadeOutQuote = function (q) {
+			  var letters = shuffle( $('[class*="char"]', $quotes[q]) );
+
+			  $.each(letters, function (i, l) {
+			    setTimeout(
+			      function () {
+			        $(l).animate({opacity: 0}, 100 );
+			      },
+			      ( (opts.fadeTime/2) / letters.length ) * i
+			    );
+			  });
+
+			  setTimeout( function () {
+			    $($quotes[q]).hide(); },
+			    opts.fadeTime/2
+			  );
+			};
+
+			switchTo = function ( to ) {
+			  var old = active;
+
+			  fadeInQuote(to);
+			  fadeOutQuote(old);
+
+			  active = to;
+			};
+
+
+			$quotes.each( function (i, quote) {
+			  $(quote).hide();
+			  $(quote)
+			  .children('p').lettering('lines')
+			  .children('[class*=line]').lettering();
+
+			});
+
+			switchTo(next);
+			setInterval( function () {
+			  next = ( active + 1 ) % $quotes.length;
+			  switchTo(next);
+			}, opts.dwellTime );
+
+
+		});
+		</script>
+
+		<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-43947712-1']);
+		_gaq.push(['_setDomainName', 'baphomet.me']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+		</script>
+	</body>
+</html>
+<!--
+█▀▀ █▀▀ █▀▀ █▀▀█ █▀▀ ▀▀█▀▀ ▒█▀▀█ █▀▀ █▀▀█ █▀▀█ ▀▀█▀▀
+▀▀█ █▀▀ █░░ █▄▄▀ █▀▀ ░░█░░ ▒█░▄▄ ▀▀█ █░░█ █░░█ ░░█░░
+▀▀▀ ▀▀▀ ▀▀▀ ▀░▀▀ ▀▀▀ ░░▀░░ ▒█▄▄█ ▀▀▀ █▀▀▀ ▀▀▀▀ ░░▀░'14
+-->

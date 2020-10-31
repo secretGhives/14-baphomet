@@ -1,0 +1,49 @@
+html, body { height: 100%; width: 100%; overflow: hidden; margin: 0; perspective: 1080; background: radial-gradient(circle farthest-corner at center, #fffafa 0%, #939191 100%); }
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Source Sans Pro', 'Myriad Pro', 'Lucida Grande', Verdana, sans-serif;
+  background: #e6e6e6;
+  color: #333;
+  position: relative;
+}
+
+#quotes {
+  font-size: 35px;
+  font-weight: bold;
+  width: 80%;
+  height: 150px;
+  margin: -75px 10%;
+  top: 50%;
+  position: absolute;
+}
+#quotes .quote {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+  font-weight: bolder;
+  text-align: center;
+}
+#quotes .quote span[class*=line] {
+  display: block;
+}
+#quotes .quote .text {
+  font-weight: 900;
+}
+#quotes .quote p {
+  margin: 25px 0 0;
+}
+#quotes .quote p.attrib {
+  font-size: 60%;
+  margin: .5em;
+  margin-left: 61%;
+  text-align: left;
+  font-style: italic;
+}
